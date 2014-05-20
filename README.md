@@ -5,8 +5,14 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ## Sample pillar
 
     opencontrail:
-      server:
+      configuration:
         enabled: True
+      
+      control:
+      	enabled: True
+
+      analytics:
+      	enabled: True
         
 
 ## Read more
