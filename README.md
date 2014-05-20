@@ -18,5 +18,6 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ## Read more
 
 * http://opencontrail.org
+* http://juniper.github.io/contrail-vnc/README.html
 * http://www.juniper.net/techpubs/en_US/contrail1.0/information-products/topic-collections/release-notes/index.html
 * http://www.juniper.net/support/downloads/?p=contrail#sw

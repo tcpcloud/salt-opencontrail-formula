@@ -12,5 +12,10 @@
 
 {% if grains.os_family == 'RedHat' %}
 
+contrail_packages:
+ pkg.installed:
+ - names: 
+   - wget
+
 
 {% endif %}
