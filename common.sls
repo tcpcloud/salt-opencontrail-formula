@@ -8,6 +8,8 @@
 
 {% if grains.os == 'Ubuntu' %}
 
+{% endif %}
+
 {% if grains.os_family == 'RedHat' %}
 
 
