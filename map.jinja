@@ -1,4 +1,16 @@
 
+{% set vrouter = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': [''],
+        'services': ['']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name', 'contrail-fabric-utils'],
+        'services': ['']
+    },
+}, merge=salt['pillar.get']('opencontrail:vrouter')) %}
+
+
 {% set control = salt['grains.filter_by']({
     'Debian': {
         'pkgs': [''],

@@ -17,5 +17,4 @@ contrail_packages:
  - names: 
    - wget
 
-
 {% endif %}

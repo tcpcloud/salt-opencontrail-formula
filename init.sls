@@ -1,6 +1,5 @@
 
 include:
-- opencontrail.common
 {% if pillar.opencontrail.configuration is defined %}
 - opencontrail.configuration
 {% endif %}
@@ -9,4 +8,7 @@ include:
 {% endif %}
 {% if pillar.opencontrail.analytics is defined %}
 - opencontrail.analytics
+{% endif %}
+{% if pillar.opencontrail.vrouter is defined %}
+- opencontrail.vrouter
 {% endif %}
