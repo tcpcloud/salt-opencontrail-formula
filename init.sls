@@ -15,3 +15,6 @@ include:
 {% if pillar.opencontrail.database is defined %}
 - opencontrail.database
 {% endif %}
+{% if pillar.opencontrail.web is defined %}
+- opencontrail.web
+{% endif %}

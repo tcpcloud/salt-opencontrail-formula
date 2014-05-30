@@ -3,7 +3,11 @@
 
 {% if grains.os_family == 'Debian' %}
 
-/etc/init/supervisor-analytics.override:
+/etc/init/supervisor-control.override:
+  file.managed:
+  - contents: 'manual'
+
+/etc/init/supervisor-dns.override:
   file.managed:
   - contents: 'manual'
 

@@ -3,7 +3,11 @@
 
 {% if grains.os_family == 'Debian' %}
 
-/etc/init/supervisord-contrail-database.override:
+/etc/init/supervisor-config.override:
+  file.managed:
+  - contents: 'manual'
+
+/etc/init/neutron-server.override:
   file.managed:
   - contents: 'manual'
 

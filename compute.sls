@@ -3,7 +3,7 @@
 
 {% if grains.os_family == 'Debian' %}
 
-/etc/init/supervisor-analytics.override:
+/etc/init/supervisor-vrouter.override:
   file.managed:
   - contents: 'manual'
 
