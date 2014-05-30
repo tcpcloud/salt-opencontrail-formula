@@ -1,5 +1,5 @@
-{%- from "opencontrail/map.jinja" import control with context %}
-{%- if control.enabled %}
+{%- from "opencontrail/map.jinja" import compute with context %}
+{%- if compute.enabled %}
 
 {% if grains.os_family == 'Debian' %}
 

@@ -1,14 +1,17 @@
 
 include:
-{% if pillar.opencontrail.configuration is defined %}
-- opencontrail.configuration
+{% if pillar.opencontrail.collector is defined %}
+- opencontrail.collector
+{% endif %}
+{% if pillar.opencontrail.compute is defined %}
+- opencontrail.compute
+{% endif %}
+{% if pillar.opencontrail.config is defined %}
+- opencontrail.config
 {% endif %}
 {% if pillar.opencontrail.control is defined %}
 - opencontrail.control
 {% endif %}
-{% if pillar.opencontrail.analytics is defined %}
-- opencontrail.analytics
-{% endif %}
-{% if pillar.opencontrail.vrouter is defined %}
-- opencontrail.vrouter
+{% if pillar.opencontrail.database is defined %}
+- opencontrail.database
 {% endif %}

@@ -7,7 +7,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ### Contrail Configuration node
 
     opencontrail:
-      configuration:
+      config:
         enabled: True
 
 ### Contrail Control node
@@ -19,13 +19,15 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ### Contrail Analytics node
 
     opencontrail:
-      analytics:
+      collector:
+        enabled: True
+      database:
         enabled: True
         
-### Contrail Vrouter
+### Contrail Vrouter on compute node
 
     opencontrail:
-      vrouter:
+      compute:
         enabled: True
 
 ## Read more
