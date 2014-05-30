@@ -1,6 +1,10 @@
 {%- from "opencontrail/map.jinja" import collector with context %}
 {%- if collector.enabled %}
 
+opencontrail_collector_packages:
+  pkg.installed:
+  - names: {{ collector.pkgs }}
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-analytics.override:

@@ -3,6 +3,10 @@
 
 {% if grains.os_family == 'Debian' %}
 
+opencontrail_control_packages:
+  pkg.installed:
+  - names: {{ control.pkgs }}
+
 /etc/init/supervisor-control.override:
   file.managed:
   - contents: 'manual'

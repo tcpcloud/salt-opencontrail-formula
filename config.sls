@@ -1,6 +1,10 @@
 {%- from "opencontrail/map.jinja" import config with context %}
 {%- if config.enabled %}
 
+opencontrail_config_packages:
+  pkg.installed:
+  - names: {{ config.pkgs }}
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-config.override:
