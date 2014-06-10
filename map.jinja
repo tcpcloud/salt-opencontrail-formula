@@ -12,11 +12,11 @@
 
 {% set compute = salt['grains.filter_by']({
     'Debian': {
-        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-fabric-utils'],
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter'],
         'services': ['contrail-vrouter', 'supervisor-vrouter']
     },
     'RedHat': {
-        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name', 'contrail-fabric-utils', 'contrail-openstack-storage'],
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name', 'contrail-openstack-storage'],
         'services': ['contrail-vrouter', 'supervisor-vrouter']
     },
 }, merge=salt['pillar.get']('opencontrail:compute')) %}
@@ -64,5 +64,3 @@
         'services': ['supervisor-webui']
     },
 }, merge=salt['pillar.get']('opencontrail:web')) %}
-
-
