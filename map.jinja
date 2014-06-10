@@ -6,7 +6,7 @@
     },
     'RedHat': {
         'pkgs': ['contrail-openstack-analytics'],
-        'services': [supervisor-analytics]
+        'services': ['supervisor-analytics']
     },
 }, merge=salt['pillar.get']('opencontrail:collector')) %}
 
