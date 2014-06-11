@@ -25,11 +25,19 @@ opencontrail_database_packages:
   - require:
     - pkg: opencontrail_database_packages
 
+/etc/cassandra/conf/cassandra-env.sh:
+  file.managed:
+  - source: salt://opencontrail/conf/cassandra-env.sh
+  - template: jinja
+  - require:
+    - pkg: opencontrail_database_packages
+
 opencontrail_database_services:
   service.running
   - enable: true
   - names: {{ database.services }}
   - watch: 
     - file: /etc/cassandra/conf/cassandra.yaml
+    - file: /etc/cassandra/conf/cassandra-env.sh
 
 {%- endif %}
