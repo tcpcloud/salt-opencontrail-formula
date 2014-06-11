@@ -69,6 +69,22 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/zookeeper/conf/log4j.properties:
+  file.managed:
+  - source: salt://opencontrail/conf/log4j.properties
+  - require:
+    - cmd: setup_api_venv
+
+/usr/lib/zookeeper/bin/zkEnv.sh:
+  file.managed:
+  - source: salt://opencontrail/conf/zkEnv.sh
+  - require:
+    - cmd: setup_api_venv
+
+/var/lib/zookeeper/myid:
+  file.managed:
+  - contents: '{{ config.id }}'
+
 /etc/contrail/supervisord_config_files:
   file.recurse:
   - source: salt://opencontrail/conf/config
