@@ -103,4 +103,11 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+opencontrail_config_services:
+  service.running:
+  - enable: true
+  - names: {{ config.services }}
+  - watch: 
+    - file: /etc/zookeeper/conf/zoo.cfg
+
 {%- endif %}

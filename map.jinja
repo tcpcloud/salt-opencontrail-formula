@@ -33,11 +33,11 @@
 {% set config = salt['grains.filter_by']({
     'Debian': {
         'pkgs': ['contrail-openstack-config'],
-        'services': ['contrail-api', 'contrail-schema', 'contrail-discovery', 'contrail-svc-monitor', 'ifmap', 'supervisor-config']
+        'services': ['zookeeper', 'supervisor-config']
     },
     'RedHat': {
         'pkgs': ['contrail-openstack-config'],
-        'services': ['contrail-api', 'contrail-schema', 'contrail-discovery', 'contrail-svc-monitor', 'ifmap', 'supervisor-config']
+        'services': ['zookeeper', 'supervisor-config']
     },
 }, merge=salt['pillar.get']('opencontrail:config')) %}
 
