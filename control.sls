@@ -8,6 +8,17 @@ fs.file-max:
   sysctl.present:
   - value: 65535
 
+security_limits_conf:
+  cmd.run:
+  - names:
+    - sed -i '/^root\s*soft\s*nproc\s*.*/d' /etc/security/limits.conf && printf "root soft nproc 65535\n" >> /etc/security/limits.conf
+    - sed -i '/^*\s*hard\s*nofile\s*.*/d' /etc/security/limits.conf && printf "* hard nofile 65535\n" >> /etc/security/limits.conf
+    - sed -i '/^*\s*soft\s*nofile\s*.*/d' /etc/security/limits.conf && printf "* soft nofile 65535\n" >> /etc/security/limits.conf
+    - sed -i '/^*\s*hard\s*nproc\s*.*/d' /etc/security/limits.conf && printf "* hard nproc 65535\n" >> /etc/security/limits.conf
+    - sed -i '/^*\s*soft\s*nproc\s*.*/d' /etc/security/limits.conf && printf "* soft nofile 65535\n" >> /etc/security/limits.conf
+  - require:
+    - file: /etc/security/limits.conf
+
 opencontrail_control_packages:
   pkg.installed:
   - names: {{ control.pkgs }}
