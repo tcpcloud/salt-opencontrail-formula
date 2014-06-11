@@ -29,10 +29,17 @@ security_limits_conf:
     - sed -i '/^*\s*soft\s*nproc\s*.*/d' /etc/security/limits.conf && printf "* soft nofile 65535\n" >> /etc/security/limits.conf
   - onlyif: test -e /etc/security/limits.conf
 
-init_conf:
+sysconfig_init_conf_setup:
+  cmd.run:
+  - names: echo "DAEMON_COREFILE_LIMIT=\'unlimited\'" >> /etc/sysconfig/init
+  - onlyif: grep DAEMON_COREFILE_LIMIT /etc/sysconfig/init
+
+sysconfig_init_conf:
   cmd.run:
   - names:
     - sed -i "s/DAEMON_COREFILE_LIMIT=.*/DAEMON_COREFILE_LIMIT=\'unlimited\'/g" /etc/sysconfig/init
+  - require:
+    - cmd: sysconfig_init_conf_setup
 
 opencontrail_control_packages:
   pkg.installed:
