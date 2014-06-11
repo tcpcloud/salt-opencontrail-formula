@@ -28,7 +28,7 @@ opencontrail_repo:
   file.managed:
   - contents: "{{ common.identity.token }}"
   - require:
-  	- file: /etc/contrail
+    - file: /etc/contrail
 
 /etc/contrail/ctrl-details:
   file.managed:
