@@ -31,7 +31,7 @@ security_limits_conf:
 
 sysconfig_init_conf_setup:
   cmd.run:
-  - names: echo "DAEMON_COREFILE_LIMIT=\'unlimited\'" >> /etc/sysconfig/init
+  - name: echo "DAEMON_COREFILE_LIMIT=\'unlimited\'" >> /etc/sysconfig/init
   - onlyif: grep DAEMON_COREFILE_LIMIT /etc/sysconfig/init
 
 sysconfig_init_conf:
