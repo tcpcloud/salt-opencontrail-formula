@@ -1,6 +1,7 @@
-SERVICE_TOKEN=1270c3acddd44b5d8e0c
-ADMIN_TOKEN=cloudlab
-CONTROLLER=10.0.102.210
-QUANTUM=10.0.102.200
-QUANTUM_PORT=9697
+{%- from "opencontrail/map.jinja" import control with context %}
+SERVICE_TOKEN={{ control.identity.token }}
+ADMIN_TOKEN=cloudlab{{ control.identity.password }}
+CONTROLLER={{ control.identity.host }}
+QUANTUM={{ control.network.token }}
+QUANTUM_PORT=9697{{ control.network.port }}
 COMPUTE=None

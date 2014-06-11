@@ -13,6 +13,22 @@ Contrail Controller is an open, standards-based software solution that delivers 
           address: http://mirror.robotice.cz/contrail-havana/
       config:
         enabled: true
+        identity:
+          engine: keystone
+          host: 127.0.0.1
+          port: 35357
+          token: service_token
+          password: admin_password
+        network:
+          engine: neutron
+          host: 127.0.0.1
+          port: 9697
+
+### Contrail WebUI node
+
+    opencontrail:
+      web:
+        enabled: True
         cache:
           engine: redis
           host: 127.0.0.1
@@ -25,12 +41,6 @@ Contrail Controller is an open, standards-based software solution that delivers 
           password: pwd
           token: service_token
           tenant: service
-
-### Contrail Control node
-
-    opencontrail:
-      control:
-        enabled: True
 
 ### Contrail Analytics node
 

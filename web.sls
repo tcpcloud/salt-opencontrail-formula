@@ -18,6 +18,5 @@ opencontrail_web_packages:
 
 {% endif %}
 
-{}
 
 {%- endif %}
