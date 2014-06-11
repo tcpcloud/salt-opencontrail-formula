@@ -4,6 +4,10 @@
 include:
 - opencontrail.common
 
+fs.file-max:
+  sysctl.present:
+  - value: 65535
+
 opencontrail_control_packages:
   pkg.installed:
   - names: {{ control.pkgs }}
