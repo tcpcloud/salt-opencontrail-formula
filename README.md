@@ -40,6 +40,8 @@ Contrail Controller is an open, standards-based software solution that delivers 
           password: adminpwd
           token: service_token
           tenant: admin
+        members:
+        - 192.168.0.1
 
 ### Contrail WebUI node
 
@@ -74,7 +76,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
           port: 9160
           rpc_port: 9300
         members:
-        - 192.168.0.1
+        - host: 192.168.0.1
         
 ### Contrail Vrouter on compute node
 

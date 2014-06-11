@@ -62,6 +62,13 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/zookeeper/conf/zoo.cfg:
+  file.managed:
+  - source: salt://opencontrail/conf/zoo.cfg
+  - template: jinja
+  - require:
+    - cmd: setup_api_venv
+
 /etc/contrail/supervisord_config_files:
   file.recurse:
   - source: salt://opencontrail/conf/config
