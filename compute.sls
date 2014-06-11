@@ -18,4 +18,9 @@ opencontrail_compute_packages:
 
 {% endif %}
 
+setup_compute_venv:
+  cmd.run:
+  - name: cd /opt/contrail/vrouter-venv/archive; source ../bin/activate && pip install *
+  - onlyif: test -e /opt/contrail/vrouter-venv/lib/python2.7/site-packages/xmltodict
+
 {%- endif %}

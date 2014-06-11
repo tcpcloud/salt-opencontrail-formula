@@ -47,6 +47,11 @@ opencontrail_control_packages:
   - require:
     - pkgrepo: opencontrail_repo
 
+setup_control_venv:
+  cmd.run:
+  - name: cd /opt/contrail/control-venv/archive; source ../bin/activate && pip install *
+  - onlyif: test -e /opt/contrail/control-venv/lib/python2.7/site-packages/xmltodict
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:

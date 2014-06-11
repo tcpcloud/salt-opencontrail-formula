@@ -19,4 +19,9 @@ opencontrail_config_packages:
 
 {% endif %}
 
+setup_api_venv:
+  cmd.run:
+  - name: cd /opt/contrail/api-venv/archive; source ../bin/activate && pip install *
+  - onlyif: test -e /opt/contrail/api-venv/lib/python2.7/site-packages/cfgm_common
+
 {%- endif %}
