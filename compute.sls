@@ -1,6 +1,9 @@
 {%- from "opencontrail/map.jinja" import compute with context %}
 {%- if compute.enabled %}
 
+include:
+- opencontrail.common
+
 opencontrail_compute_packages:
   pkg.installed:
   - names: {{ compute.pkgs }}

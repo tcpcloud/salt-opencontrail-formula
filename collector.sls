@@ -1,6 +1,9 @@
 {%- from "opencontrail/map.jinja" import collector with context %}
 {%- if collector.enabled %}
 
+include:
+- opencontrail.common
+
 opencontrail_collector_packages:
   pkg.installed:
   - names: {{ collector.pkgs }}

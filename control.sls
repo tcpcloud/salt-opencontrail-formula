@@ -1,6 +1,9 @@
 {%- from "opencontrail/map.jinja" import control with context %}
 {%- if control.enabled %}
 
+include:
+- opencontrail.common
+
 opencontrail_control_packages:
   pkg.installed:
   - names: {{ control.pkgs }}

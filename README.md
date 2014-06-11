@@ -7,8 +7,24 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ### Contrail Configuration node
 
     opencontrail:
+      common:
+        source:
+          engine: pkg
+          address: http://mirror.robotice.cz/contrail-havana/
       config:
         enabled: True
+        cache:
+          engine: redis
+          host: 127.0.0.1
+          port: 6379
+        identity:
+          engine: keystone
+          host: 127.0.0.1
+          port: 35357
+          user: nova
+          password: pwd
+          token: service_token
+          tenant: service
 
 ### Contrail Control node
 

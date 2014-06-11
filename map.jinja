@@ -1,4 +1,13 @@
 
+{% set common = salt['grains.filter_by']({
+    'Debian': {
+        'source': {'engine': 'pkg', 'address': 'http://'},
+    },
+    'RedHat': {
+        'source': {'engine': 'pkg', 'address': 'http://'},
+    },
+}, merge=salt['pillar.get']('opencontrail:common')) %}
+
 {% set collector = salt['grains.filter_by']({
     'Debian': {
         'pkgs': ['contrail-openstack-analytics'],

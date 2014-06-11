@@ -1,6 +1,9 @@
 {%- from "opencontrail/map.jinja" import web with context %}
 {%- if web.enabled %}
 
+include:
+- opencontrail.common
+
 opencontrail_web_packages:
   pkg.installed:
   - names: {{ web.pkgs }}
@@ -12,5 +15,7 @@ opencontrail_web_packages:
   - contents: 'manual'
 
 {% endif %}
+
+{}
 
 {%- endif %}
