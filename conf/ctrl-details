@@ -2,6 +2,6 @@
 SERVICE_TOKEN={{ common.identity.token }}
 ADMIN_TOKEN=cloudlab{{ common.identity.password }}
 CONTROLLER={{ common.identity.host }}
-QUANTUM={{ common.network.token }}
+QUANTUM={{ common.network.host }}
 QUANTUM_PORT=9697{{ common.network.port }}
 COMPUTE=None
