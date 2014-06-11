@@ -34,6 +34,13 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/contrail/schema_transformer.conf:
+  file.managed:
+  - source: salt://opencontrail/conf/schema_transformer.conf
+  - template: jinja
+  - require:
+    - cmd: setup_api_venv
+
 /etc/contrail/supervisord_config_files/contrail-api.ini:
   file.managed:
   - source: salt://opencontrail/conf/config/contrail-api.ini
