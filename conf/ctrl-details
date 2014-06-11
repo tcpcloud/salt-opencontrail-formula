@@ -1,7 +1,7 @@
-{%- from "opencontrail/map.jinja" import control with context %}
-SERVICE_TOKEN={{ control.identity.token }}
-ADMIN_TOKEN=cloudlab{{ control.identity.password }}
-CONTROLLER={{ control.identity.host }}
-QUANTUM={{ control.network.token }}
-QUANTUM_PORT=9697{{ control.network.port }}
+{%- from "opencontrail/map.jinja" import common with context %}
+SERVICE_TOKEN={{ common.identity.token }}
+ADMIN_TOKEN=cloudlab{{ common.identity.password }}
+CONTROLLER={{ common.identity.host }}
+QUANTUM={{ common.network.token }}
+QUANTUM_PORT=9697{{ common.network.port }}
 COMPUTE=None
