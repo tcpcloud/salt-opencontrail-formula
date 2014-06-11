@@ -33,7 +33,7 @@ opencontrail_database_packages:
     - pkg: opencontrail_database_packages
 
 opencontrail_database_services:
-  service.running
+  service.running:
   - enable: true
   - names: {{ database.services }}
   - watch: 
