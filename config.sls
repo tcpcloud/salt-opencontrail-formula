@@ -4,6 +4,8 @@
 opencontrail_config_packages:
   pkg.installed:
   - names: {{ config.pkgs }}
+  - require:
+    - pkgrepo: opencontrail_repo
 
 {% if grains.os_family == 'Debian' %}
 

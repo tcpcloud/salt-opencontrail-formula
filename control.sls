@@ -21,6 +21,8 @@ security_limits_conf:
 opencontrail_control_packages:
   pkg.installed:
   - names: {{ control.pkgs }}
+  - require:
+    - pkgrepo: opencontrail_repo
 
 {% if grains.os_family == 'Debian' %}
 

@@ -7,6 +7,8 @@ include:
 opencontrail_web_packages:
   pkg.installed:
   - names: {{ web.pkgs }}
+  - require:
+    - pkgrepo: opencontrail_repo
 
 {% if grains.os_family == 'Debian' %}
 

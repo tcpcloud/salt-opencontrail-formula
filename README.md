@@ -12,7 +12,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
           engine: pkg
           address: http://mirror.robotice.cz/contrail-havana/
       config:
-        enabled: True
+        enabled: true
         cache:
           engine: redis
           host: 127.0.0.1
@@ -36,9 +36,18 @@ Contrail Controller is an open, standards-based software solution that delivers 
 
     opencontrail:
       collector:
-        enabled: True
+        enabled: true
       database:
-        enabled: True
+        enabled: true
+        original_token: 0
+        data_dirs:
+        - /srv/cassandra/data
+        bind:
+          host: 0.0.0.0
+          port: 9160
+          rpc_port: 9300
+        members:
+        - 192.168.0.1
         
 ### Contrail Vrouter on compute node
 

@@ -7,6 +7,8 @@ include:
 opencontrail_database_packages:
   pkg.installed:
   - names: {{ database.pkgs }}
+  - require:
+    - pkgrepo: opencontrail_repo
 
 {% if grains.os_family == 'Debian' %}
 
@@ -15,5 +17,12 @@ opencontrail_database_packages:
   - contents: 'manual'
 
 {% endif %}
+
+/etc/cassandra/conf/cassandra.yaml:
+  file.managed:
+  - source: salt://opencontrail/conf/cassandra.yaml
+  - template: jinja
+  - require:
+    - pkg: opencontrail_database_packages
 
 {%- endif %}

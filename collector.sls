@@ -7,6 +7,8 @@ include:
 opencontrail_collector_packages:
   pkg.installed:
   - names: {{ collector.pkgs }}
+  - require:
+    - pkgrepo: opencontrail_repo
 
 {% if grains.os_family == 'Debian' %}
 
