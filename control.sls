@@ -8,6 +8,17 @@ fs.file-max:
   sysctl.present:
   - value: 65535
 
+net.ipv4.ip_forward:
+  sysctl.present:
+  - value: 1
+
+kernel.core_pattern:
+  sysctl.present:
+  - value: "/var/crashes/core.%e.%p.%h.%t"
+
+/var/crashes:
+  file.directory
+
 security_limits_conf:
   cmd.run:
   - names:
@@ -17,6 +28,11 @@ security_limits_conf:
     - sed -i '/^*\s*hard\s*nproc\s*.*/d' /etc/security/limits.conf && printf "* hard nproc 65535\n" >> /etc/security/limits.conf
     - sed -i '/^*\s*soft\s*nproc\s*.*/d' /etc/security/limits.conf && printf "* soft nofile 65535\n" >> /etc/security/limits.conf
   - onlyif: test -e /etc/security/limits.conf
+
+init_conf:
+  cmd.run:
+  - names:
+    - sed -i "s/DAEMON_COREFILE_LIMIT=.*/DAEMON_COREFILE_LIMIT=\'unlimited\'/g" /etc/sysconfig/init
 
 opencontrail_control_packages:
   pkg.installed:
