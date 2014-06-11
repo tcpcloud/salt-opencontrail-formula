@@ -27,11 +27,4 @@ setup_api_venv:
   - name: cd /opt/contrail/api-venv/archive; source ../bin/activate && pip install *
   - onlyif: test -e /opt/contrail/api-venv/lib/python2.7/site-packages/cfgm_common
 
-/etc/contrail/ctrl-details:
-  file.managed:
-  - source: salt://opencontrail/conf/ctrl-details
-  - template: jinja
-  - require:
-    - pkg: opencontrail_config_packages
-
 {%- endif %}

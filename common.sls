@@ -29,3 +29,10 @@ opencontrail_repo:
   - contents: "{{ common.identity.token }}"
   - require:
   	- file: /etc/contrail
+
+/etc/contrail/ctrl-details:
+  file.managed:
+  - source: salt://opencontrail/conf/ctrl-details
+  - template: jinja
+  - require:
+    - file: /etc/contrail
