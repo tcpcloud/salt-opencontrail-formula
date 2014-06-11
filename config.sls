@@ -55,6 +55,13 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/contrail/vnc_api_lib.ini:
+  file.managed:
+  - source: salt://opencontrail/conf/vnc_api_lib.ini
+  - template: jinja
+  - require:
+    - cmd: setup_api_venv
+
 /etc/contrail/supervisord_config_files:
   file.recurse:
   - source: salt://opencontrail/conf/config
