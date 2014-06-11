@@ -41,16 +41,34 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
-/etc/contrail/supervisord_config_files/contrail-api.ini:
+/etc/contrail/svc_monitor.conf:
   file.managed:
-  - source: salt://opencontrail/conf/config/contrail-api.ini
+  - source: salt://opencontrail/conf/svc_monitor.conf
   - template: jinja
   - require:
     - cmd: setup_api_venv
 
+/etc/contrail/discovery.conf:
+  file.managed:
+  - source: salt://opencontrail/conf/discovery.conf
+  - template: jinja
+  - require:
+    - cmd: setup_api_venv
+
+/etc/contrail/supervisord_config_files:
+  file.recurse:
+  - source: salt://opencontrail/conf/config
+
 /etc/init.d/contrail-api:
   file.managed:
   - source: salt://opencontrail/conf/contrail-api
+  - mode: 755
+  - require:
+    - cmd: setup_api_venv
+
+/etc/init.d/contrail-discovery:
+  file.managed:
+  - source: salt://opencontrail/conf/contrail-discovery
   - mode: 755
   - require:
     - cmd: setup_api_venv

@@ -33,6 +33,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
           host: 192.168.0.1
         identity:
           engine: keystone
+          region: RegionOne
           host: 127.0.0.1
           port: 35357
           user: admin
