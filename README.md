@@ -36,9 +36,9 @@ Contrail Controller is an open, standards-based software solution that delivers 
           host: 127.0.0.1
           port: 35357
           user: admin
-          password: pwd
+          password: adminpwd
           token: service_token
-          tenant: service
+          tenant: admin
 
 ### Contrail WebUI node
 
@@ -54,9 +54,9 @@ Contrail Controller is an open, standards-based software solution that delivers 
           host: 127.0.0.1
           port: 35357
           user: admin
-          password: pwd
+          password: adminpwd
           token: service_token
-          tenant: service
+          tenant: admin
 
 ### Contrail Analytics node
 
