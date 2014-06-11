@@ -25,4 +25,11 @@ opencontrail_database_packages:
   - require:
     - pkg: opencontrail_database_packages
 
+opencontrail_database_services:
+  service.running
+  - enable: true
+  - names: {{ database.services }}
+  - watch: 
+    - file: /etc/cassandra/conf/cassandra.yaml
+
 {%- endif %}
