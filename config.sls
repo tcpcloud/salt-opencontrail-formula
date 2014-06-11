@@ -1,6 +1,9 @@
 {%- from "opencontrail/map.jinja" import config with context %}
 {%- if config.enabled %}
 
+include:
+- opencontrail.common
+
 opencontrail_config_packages:
   pkg.installed:
   - names: {{ config.pkgs }}
