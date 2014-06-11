@@ -8,7 +8,7 @@
 
 # The name of the cluster. This is mainly used to prevent machines in
 # one logical cluster from joining another.
-cluster_name: {{ database.name }}
+cluster_name: '{{ database.name }}'
 
 # This defines the number of tokens randomly assigned to this node on the ring
 # The more tokens, relative to other nodes, the larger the proportion of data
@@ -111,9 +111,7 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 # will spread data evenly across them, subject to the granularity of
 # the configured compaction strategy.
 data_file_directories:
-    {%- for dir in database.data_dirs %}
-    - {{ dir }}
-    {%- endfor %}
+    - /home/cassandra/data
 # commit log
 commitlog_directory: /home/cassandra/commitlog
 
