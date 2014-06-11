@@ -1,6 +1,6 @@
 {%- from "opencontrail/map.jinja" import common with context %}
 SERVICE_TOKEN={{ common.identity.token }}
-ADMIN_TOKEN=cloudlab{{ common.identity.password }}
+ADMIN_TOKEN={{ common.identity.password }}
 CONTROLLER={{ common.identity.host }}
 QUANTUM={{ common.network.host }}
 QUANTUM_PORT={{ common.network.port }}

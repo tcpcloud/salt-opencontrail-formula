@@ -23,6 +23,22 @@ Contrail Controller is an open, standards-based software solution that delivers 
           engine: neutron
           host: 127.0.0.1
           port: 9697
+        bind:
+          address: 192.168.0.1
+        database:
+          members:
+          - host: 192.168.1.1
+            port: 9160
+        cache:
+          host: 192.168.0.1
+        identity:
+          engine: keystone
+          host: 127.0.0.1
+          port: 35357
+          user: admin
+          password: pwd
+          token: service_token
+          tenant: service
 
 ### Contrail WebUI node
 
@@ -37,7 +53,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
           engine: keystone
           host: 127.0.0.1
           port: 35357
-          user: nova
+          user: admin
           password: pwd
           token: service_token
           tenant: service
