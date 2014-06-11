@@ -41,4 +41,11 @@ setup_api_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/init.d/contrail-api:
+  file.managed:
+  - source: salt://opencontrail/conf/contrail-api
+  - mode: 755
+  - require:
+    - cmd: setup_api_venv
+
 {%- endif %}
