@@ -20,3 +20,12 @@ opencontrail_repo:
   - gpgcheck: 0
 
 {%- endif %}
+
+/etc/contrail:
+  file.directory
+
+/etc/contrail/service.token:
+  file.managed:
+  - contents: "{{ common.identity.token }}"
+  - require:
+  	- file: /etc/contrail
