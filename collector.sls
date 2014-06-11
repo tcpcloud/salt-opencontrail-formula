@@ -18,7 +18,7 @@ opencontrail_collector_packages:
 
 {% endif %}
 
-setup_api_venv:
+setup_analytics_venv:
   cmd.run:
   - name: cd /opt/contrail/analytics-venv/archive; source ../bin/activate && pip install *
   - onlyif: test -e /opt/contrail/analytics-venv/lib/python2.7/site-packages/cfgm_common
