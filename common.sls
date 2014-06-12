@@ -42,6 +42,11 @@ sysconfig_init_conf:
 /var/crashes:
   file.directory
 
+iptables:
+  service.dead:
+  - enable: false
+  - name: iptables
+
 {%- endif %}
 
 /etc/contrail:
