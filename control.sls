@@ -73,6 +73,12 @@ setup_control_venv:
   - require:
     - cmd: setup_control_venv
 
+opencontrail_control_services:
+  service.running:
+  - enable: true
+  - names: {{ control.services }}
+
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:
