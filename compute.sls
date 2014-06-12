@@ -21,7 +21,9 @@ opencontrail_compute_packages:
 setup_compute_venv:
   cmd.run:
   - name: cd /opt/contrail/vrouter-venv/archive; source ../bin/activate && pip install *
-  - onlyif: test -e /opt/contrail/vrouter-venv/lib/python2.7/site-packages/xmltodict
+  - unless: test -e /opt/contrail/vrouter-venv/lib/python2.7/site-packages/xmltodict
+  - require:
+    - pkg: opencontrail_compute_packages
 
 /etc/contrail/vrouter_nodemgr_param:
   file.managed:
