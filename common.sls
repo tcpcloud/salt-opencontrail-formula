@@ -19,6 +19,29 @@ opencontrail_repo:
   - baseurl: {{ common.source.address }}
   - gpgcheck: 0
 
+net.ipv4.ip_forward:
+  sysctl.present:
+  - value: 1
+
+kernel.core_pattern:
+  sysctl.present:
+  - value: "/var/crashes/core.%e.%p.%h.%t"
+
+sysconfig_init_conf_setup:
+  cmd.run:
+  - name: echo "DAEMON_COREFILE_LIMIT=\'unlimited\'" >> /etc/sysconfig/init
+  - unless: grep DAEMON_COREFILE_LIMIT /etc/sysconfig/init
+
+sysconfig_init_conf:
+  cmd.run:
+  - names:
+    - sed -i "s/DAEMON_COREFILE_LIMIT=.*/DAEMON_COREFILE_LIMIT=\'unlimited\'/g" /etc/sysconfig/init
+  - require:
+    - cmd: sysconfig_init_conf_setup
+
+/var/crashes:
+  file.directory
+
 {%- endif %}
 
 /etc/contrail:
