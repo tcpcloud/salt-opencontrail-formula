@@ -47,6 +47,10 @@ iptables:
   - enable: false
   - name: iptables
 
+/etc/modprobe.d/contrail.conf:
+  file.managed:
+  - contents: "alias bridge off"
+
 {%- endif %}
 
 /etc/contrail:
