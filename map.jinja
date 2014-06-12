@@ -22,11 +22,11 @@
 {% set compute = salt['grains.filter_by']({
     'Debian': {
         'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter'],
-        'services': ['contrail-vrouter', 'supervisor-vrouter']
+        'services': ['supervisor-vrouter']
     },
     'RedHat': {
         'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name'],
-        'services': ['contrail-vrouter', 'supervisor-vrouter']
+        'services': ['supervisor-vrouter']
     },
 }, merge=salt['pillar.get']('opencontrail:compute')) %}
 

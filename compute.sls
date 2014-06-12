@@ -73,10 +73,8 @@ setup_compute_venv:
     - cmd: setup_compute_venv
     - pkg: opencontrail_compute_packages
 
-
 opencontrail_compute_services:
-  service.running:
-  - enable: true
+  service.enabled:
   - names: {{ compute.services }}
 
 {%- endif %}
