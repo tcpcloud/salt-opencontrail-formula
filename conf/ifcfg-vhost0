@@ -12,4 +12,4 @@ NM_CONTROLLED=no
 SUBCHANNELS=1,2,3
 GATEWAY={{ compute.interface.gateway }}
 DNS1={{ compute.interface.dns }}
-DOMAIN="{{ pillar.system.name|split('.')[1:]|join('.') }}"
+DOMAIN="{{ compute.hostname }}"
