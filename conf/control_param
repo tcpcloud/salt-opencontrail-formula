@@ -1,11 +1,11 @@
-
-IFMAP_USER=10.0.102.200
-IFMAP_PASWD=10.0.102.200
-COLLECTOR=10.0.102.200
+{%- from "opencontrail/map.jinja" import control with context %}
+IFMAP_USER={{ control.bind.address }}
+IFMAP_PASWD={{ control.bind.address }}
+COLLECTOR={{ control.bind.address }}
 COLLECTOR_PORT=8086
-DISCOVERY=10.0.102.200
-HOSTNAME=contrail-1.11.intra.cloudlab.cz
-HOSTIP=10.0.102.200
+DISCOVERY={{ control.master.host }}
+HOSTNAME={{ pillar.system.name }}
+HOSTIP={{ control.bind.address }}
 BGP_PORT=179
 CERT_OPTS=
 LOGFILE=--log-file=/var/log/contrail/control.log

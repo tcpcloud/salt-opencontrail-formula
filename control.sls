@@ -52,6 +52,27 @@ setup_control_venv:
   - name: cd /opt/contrail/control-venv/archive; source ../bin/activate && pip install *
   - onlyif: test -e /opt/contrail/control-venv/lib/python2.7/site-packages/xmltodict
 
+/etc/irond/basicauthusers.properties:
+  file.managed:
+  - source: salt://opencontrail/conf/basicauthusers.properties
+  - template: jinja
+  - require:
+    - cmd: setup_control_venv
+
+/etc/contrail/control_param:
+  file.managed:
+  - source: salt://opencontrail/conf/control_param
+  - template: jinja
+  - require:
+    - cmd: setup_control_venv
+
+/etc/contrail/dns_param:
+  file.managed:
+  - source: salt://opencontrail/conf/dns_param
+  - template: jinja
+  - require:
+    - cmd: setup_control_venv
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:

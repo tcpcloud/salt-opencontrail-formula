@@ -47,6 +47,27 @@ Contrail Controller is an open, standards-based software solution that delivers 
         - host: 192.168.0.2
           id: 2
 
+
+### Contrail Config node
+
+    opencontrail:
+      common:
+        source:
+          engine: pkg
+          address: http://mirror.robotice.cz/contrail-havana/
+      control:
+        enabled: true
+        bind:
+          address: 192.168.0.1
+        master:
+          host: 192.168.0.1
+        members:
+        - host: 192.168.0.1
+          id: 1
+        - host: 192.168.0.2
+          id: 2
+
+
 ### Contrail WebUI node
 
     opencontrail:

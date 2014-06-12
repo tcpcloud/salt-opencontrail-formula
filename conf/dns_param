@@ -1,10 +1,10 @@
-
-IFMAP_USER=10.0.102.200.dns
-IFMAP_PASWD=10.0.102.200.dns
-COLLECTOR=10.0.102.200
+{%- from "opencontrail/map.jinja" import control with context %}
+IFMAP_USER={{ control.bind.address }}.dns
+IFMAP_PASWD={{ control.bind.address }}.dns
+COLLECTOR={{ control.bind.address }}
 COLLECTOR_PORT=8086
-DISCOVERY=10.0.102.200
-HOSTIP=10.0.102.200
+DISCOVERY={{ control.master.host }}
+HOSTIP={{ control.bind.address }}
 CERT_OPTS=
 LOGFILE=--log-file=/var/log/contrail/dns.log
 LOG_LOCAL=
