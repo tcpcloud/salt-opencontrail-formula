@@ -14,12 +14,6 @@ Contrail Controller is an open, standards-based software solution that delivers 
       config:
         enabled: true
         id: 1
-        identity:
-          engine: keystone
-          host: 127.0.0.1
-          port: 35357
-          token: service_token
-          password: admin_password
         network:
           engine: neutron
           host: 127.0.0.1
@@ -91,6 +85,10 @@ Contrail Controller is an open, standards-based software solution that delivers 
     opencontrail:
       collector:
         enabled: true
+        bind:
+          address: 192.168.0.1
+        master:
+          host: 192.168.0.1
       database:
         enabled: true
         original_token: 0
@@ -101,7 +99,9 @@ Contrail Controller is an open, standards-based software solution that delivers 
           port: 9160
           rpc_port: 9300
         members:
-        - host: 192.168.0.1
+        members:
+          - host: 192.168.1.1
+            port: 9160
         
 ### Contrail Vrouter on compute node
 
