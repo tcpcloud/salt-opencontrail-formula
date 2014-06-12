@@ -31,7 +31,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 /etc/contrail/default_pmac:
   file.managed:
@@ -39,7 +39,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 /etc/contrail/agent_param:
   file.managed:
@@ -47,7 +47,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 /etc/contrail/agent.conf:
   file.managed:
@@ -55,7 +55,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 /etc/sysconfig/network-scripts/ifcfg-{{ compute.interface.dev }}:
   file.managed:
@@ -63,7 +63,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 /etc/sysconfig/network-scripts/ifcfg-vhost0:
   file.managed:
@@ -71,7 +71,7 @@ setup_compute_venv:
   - template: jinja
   - require:
     - cmd: setup_compute_venv
-    - pgk: opencontrail_compute_packages
+    - pkg: opencontrail_compute_packages
 
 
 opencontrail_compute_services:
