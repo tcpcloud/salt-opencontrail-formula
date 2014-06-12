@@ -67,10 +67,19 @@ Contrail Controller is an open, standards-based software solution that delivers 
     opencontrail:
       web:
         enabled: True
+        bind:
+          address: 192.168.0.1
+        master:
+          host: 192.168.0.1
         cache:
           engine: redis
           host: 127.0.0.1
           port: 6379
+        members:
+        - host: 192.168.0.1
+          id: 1
+        - host: 192.168.0.2
+          id: 2
         identity:
           engine: keystone
           host: 127.0.0.1

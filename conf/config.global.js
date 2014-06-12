@@ -75,24 +75,24 @@ config.serviceEndPointTakePublicURL = true;
  *      if you do not want to specify then use ''
 *****************************************************************************/
 config.networkManager = {};
-config.networkManager.ip = '{{ web.network.host }}';
-config.networkManager.port = '{{ web.network.get('port', '9696') }}'
-config.networkManager.authProtocol = '{{ web.network.get('protocol', 'http') }}';
+config.networkManager.ip = '{{ web.master.host }}';
+config.networkManager.port = '9696'
+config.networkManager.authProtocol = 'http';
 config.networkManager.apiVersion = [];
 config.networkManager.strictSSL = false;
 config.networkManager.ca = '';
 
 config.imageManager = {};
-config.imageManager.ip = '{{ web.image.host }}';
-config.imageManager.port = '{{ web.image.get('port', '9292') }}';
+config.imageManager.ip = '{{ web.identity.host }}';
+config.imageManager.port = '9292';
 config.imageManager.authProtocol = 'http';
 config.imageManager.apiVersion = ['v1', 'v2'];
 config.imageManager.strictSSL = false;
 config.imageManager.ca = '';
 
 config.computeManager = {};
-config.computeManager.ip = '{{ web.compute.host }}';
-config.computeManager.port = '{{ web.compute.get('port', '8774') }}';
+config.computeManager.ip = '{{ web.identity.host }}';
+config.computeManager.port = '8774';
 config.computeManager.authProtocol = 'http';
 config.computeManager.apiVersion = ['v1.1', 'v2'];
 config.computeManager.strictSSL = false;
@@ -100,7 +100,7 @@ config.computeManager.ca = '';
 
 config.identityManager = {};
 config.identityManager.ip = '{{ web.identity.host }}';
-config.identityManager.port = '{{ web.identity.get('port', '5000') }}';
+config.identityManager.port = '5000';
 config.identityManager.authProtocol = 'http';
 /******************************************************************************
  * Note: config.identityManager.apiVersion is not controlled by boolean flag 
@@ -114,8 +114,8 @@ config.identityManager.strictSSL = false;
 config.identityManager.ca = '';
 
 config.storageManager = {};
-config.storageManager.ip = '{{ web.storage.host }}';
-config.storageManager.port = '{{ web.storage.get('port', '8776') }}';
+config.storageManager.ip = '{{ web.identity.host }}';
+config.storageManager.port = '8776';
 config.storageManager.authProtocol = 'http';
 config.storageManager.apiVersion = ['v1'];
 config.storageManager.strictSSL = false;
@@ -123,15 +123,15 @@ config.storageManager.ca = '';
 
 // VNConfig API server and port.
 config.cnfg = {};
-config.cnfg.server_ip = '{{ web.config.host }}';
-config.cnfg.server_port = '{{ web.config.get('port', '8082') }}';
+config.cnfg.server_ip = '{{ web.master.host }}';
+config.cnfg.server_port = '8082';
 config.cnfg.authProtocol = 'http';
 config.cnfg.strictSSL = false;
 config.cnfg.ca = '';
 
 // Analytics API server and port.
 config.analytics = {};
-config.analytics.server_ip = '10.0.102.200';
+config.analytics.server_ip = '{{ web.bind.address }}';
 config.analytics.server_port = '8081';
 config.analytics.authProtocol = 'http';
 config.analytics.strictSSL = false;
@@ -162,7 +162,7 @@ config.redis.server_ip = '127.0.0.1';
 
 /* Cassandra Server */
 config.cassandra = {};
-config.cassandra.server_ips = ['10.0.102.200'];
+config.cassandra.server_ips = [{%- for member in web.members %}'{{ member.host }}'{% if not loop.last %},{% endif %}{%- endfor %}];
 config.cassandra.server_port = '9160';
 config.cassandra.enable_edit = false;
 
