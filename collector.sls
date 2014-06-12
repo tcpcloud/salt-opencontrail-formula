@@ -21,7 +21,7 @@ opencontrail_collector_packages:
 setup_analytics_venv:
   cmd.run:
   - name: cd /opt/contrail/analytics-venv/archive; source ../bin/activate && pip install *
-  - onlyif: test -e /opt/contrail/analytics-venv/lib/python2.7/site-packages/cfgm_common
+  - unless: test -e /opt/contrail/analytics-venv/lib/python2.7/site-packages/cfgm_common
 
 /etc/contrail/vizd_param:
   file.managed:
