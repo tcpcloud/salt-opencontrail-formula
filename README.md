@@ -98,6 +98,10 @@ Contrail Controller is an open, standards-based software solution that delivers 
           address: 192.168.0.1
         master:
           host: 192.168.0.1
+        database:
+          members:
+          - host: 192.168.1.1
+            port: 9160
       database:
         enabled: true
         original_token: 0
@@ -107,10 +111,9 @@ Contrail Controller is an open, standards-based software solution that delivers 
           host: 0.0.0.0
           port: 9160
           rpc_port: 9300
-        database:
-          members:
-          - host: 192.168.1.1
-            port: 9160
+       members:
+       - host: 192.168.1.1
+         port: 9160
         
 ### Contrail Vrouter on compute node
 
