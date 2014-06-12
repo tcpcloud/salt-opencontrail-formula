@@ -107,8 +107,8 @@ Contrail Controller is an open, standards-based software solution that delivers 
           host: 0.0.0.0
           port: 9160
           rpc_port: 9300
-        members:
-        members:
+        database:
+          members:
           - host: 192.168.1.1
             port: 9160
         
