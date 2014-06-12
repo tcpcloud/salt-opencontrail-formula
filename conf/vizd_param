@@ -1,5 +1,5 @@
 {%- from "opencontrail/map.jinja" import collector with context %}
-CASSANDRA_SERVER_LIST={%- for member in collector.database.members %}{{ member.host }}:{{ member.port }} {%- endfor %}
+CASSANDRA_SERVER_LIST={% for member in collector.database.members %}{{ member.host }}:{{ member.port }} {% endfor %}
 REDIS_SERVER=$__contrail_redis_server__
 REDIS_SERVER_PORT=$__contrail_redis_server_port__
 DISCOVERY={{ collector.master.host }}
