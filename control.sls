@@ -50,7 +50,7 @@ opencontrail_control_packages:
 setup_control_venv:
   cmd.run:
   - name: cd /opt/contrail/control-venv/archive; source ../bin/activate && pip install *
-  - onlyif: test -e /opt/contrail/control-venv/lib/python2.7/site-packages/xmltodict
+  - unless: test -e /opt/contrail/control-venv/lib/python2.7/site-packages/xmltodict
 
 /etc/irond/basicauthusers.properties:
   file.managed:
@@ -73,12 +73,6 @@ setup_control_venv:
   - require:
     - cmd: setup_control_venv
 
-opencontrail_control_services:
-  service.running:
-  - enable: true
-  - names: {{ control.services }}
-
-
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:
@@ -90,5 +84,10 @@ opencontrail_control_services:
   - contents: 'manual'
 
 {% endif %}
+
+opencontrail_control_services:
+  service.running:
+  - enable: true
+  - names: {{ control.services }}
 
 {%- endif %}
