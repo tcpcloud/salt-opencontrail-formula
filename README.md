@@ -120,6 +120,16 @@ Contrail Controller is an open, standards-based software solution that delivers 
     opencontrail:
       compute:
         enabled: True
+        discovery:
+          host: 192.168.0.1
+        interface:
+          dev: p0p0p0 
+          default_pmac: fa:16:3e:8c:89:8f
+          address: 192.168.0.101
+          gateway: 192.168.0.254
+          mask: 24
+          dns: 8.8.8.8
+        control_instances: 3
 
 ## Read more
 
