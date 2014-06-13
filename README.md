@@ -131,6 +131,12 @@ Contrail Controller is an open, standards-based software solution that delivers 
           dns: 8.8.8.8
         control_instances: 3
 
+## Usage
+
+Add virtual router
+
+    python /etc/contrail/provision_vrouter.py --host_name compute1 --host_ip 192.168.1.14 --api_server_ip 192.168.1.11 --oper add --admin_user admin --admin_password cloudlab --admin_tenant_name admin
+
 ## Read more
 
 * http://opencontrail.org
