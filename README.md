@@ -137,6 +137,11 @@ Add virtual router
 
     python /etc/contrail/provision_vrouter.py --host_name compute1 --host_ip 192.168.1.14 --api_server_ip 192.168.1.11 --oper add --admin_user admin --admin_password cloudlab --admin_tenant_name admin
 
+Add control BGP
+
+  python /etc/contrail/provision_control.py --api_server_ip 192.168.1.11 --api_server_port 8082 --host_name network1.contrail.cloudlab.cz --host_ip 192.168.1.11 --router_asn 64512
+
+
 ## Read more
 
 * http://opencontrail.org
