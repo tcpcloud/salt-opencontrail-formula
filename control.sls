@@ -57,6 +57,13 @@ setup_control_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/contrail/provision_control.py:
+  file.managed:
+  - source: salt://opencontrail/conf/provision_control.py
+  - mode: 755
+  - require:
+    - cmd: setup_api_venv
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:
