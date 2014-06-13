@@ -64,6 +64,13 @@ setup_control_venv:
   - require:
     - cmd: setup_api_venv
 
+/etc/contrail/provision_bgp.py:
+  file.managed:
+  - source: salt://opencontrail/conf/provision_bgp.py
+  - mode: 755
+  - require:
+    - cmd: setup_api_venv
+
 {% if grains.os_family == 'Debian' %}
 
 /etc/init/supervisor-control.override:
