@@ -1,11 +1,75 @@
 
-{% set control = salt['grains.filter_by']({
+{% set common = salt['grains.filter_by']({
     'Debian': {
-        'pkgs': [''],
-        'services': ['']
+        'source': {'engine': 'pkg', 'address': 'http://'},
     },
     'RedHat': {
-        'pkgs': [''],
-        'services': ['']
+        'source': {'engine': 'pkg', 'address': 'http://'},
+    },
+}, merge=salt['pillar.get']('opencontrail:common')) %}
+
+{% set collector = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-openstack-analytics'],
+        'services': ['supervisor-analytics']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-openstack-analytics'],
+        'services': ['supervisor-analytics']
+    },
+}, merge=salt['pillar.get']('opencontrail:collector')) %}
+
+{% set compute = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter'],
+        'services': ['supervisor-vrouter']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name'],
+        'services': ['supervisor-vrouter']
+    },
+}, merge=salt['pillar.get']('opencontrail:compute')) %}
+
+{% set config = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-openstack-config'],
+        'services': ['zookeeper', 'supervisor-config']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-openstack-config'],
+        'services': ['zookeeper', 'supervisor-config']
+    },
+}, merge=salt['pillar.get']('opencontrail:config')) %}
+
+{% set control = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-openstack-control'],
+        'services': ['contrail-control', 'supervisor-control']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-openstack-control'],
+        'services': ['contrail-control', 'supervisor-control']
     },
 }, merge=salt['pillar.get']('opencontrail:control')) %}
+
+{% set database = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-openstack-database'],
+        'services': ['supervisord-contrail-database']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-openstack-database'],
+        'services': ['supervisord-contrail-database']
+    },
+}, merge=salt['pillar.get']('opencontrail:database')) %}
+
+{% set web = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['contrail-openstack-webui'],
+        'services': ['supervisor-webui']
+    },
+    'RedHat': {
+        'pkgs': ['contrail-openstack-webui'],
+        'services': ['supervisor-webui']
+    },
+}, merge=salt['pillar.get']('opencontrail:web')) %}
