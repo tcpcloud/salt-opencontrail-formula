@@ -133,7 +133,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
 
 ## Compute node installation
 
-    yum install contrail-vrouter contrail-openstack-vrouter contrail-interface-name contrail-fabric-utils
+    yum install contrail-vrouter contrail-openstack-vrouter
     reboot
     salt-call state.sls opencontrail
     reboot

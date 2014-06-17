@@ -25,7 +25,7 @@
         'services': ['supervisor-vrouter']
     },
     'RedHat': {
-        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter', 'contrail-interface-name'],
+        'pkgs': ['contrail-vrouter', 'contrail-openstack-vrouter'],
         'services': ['supervisor-vrouter']
     },
 }, merge=salt['pillar.get']('opencontrail:compute')) %}
