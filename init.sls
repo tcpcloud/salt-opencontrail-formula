@@ -18,3 +18,6 @@ include:
 {% if pillar.opencontrail.web is defined %}
 - opencontrail.web
 {% endif %}
+{% if pillar.opencontrail.common is defined %}
+- opencontrail.common
+{% endif %}
