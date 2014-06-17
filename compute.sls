@@ -56,7 +56,7 @@ setup_compute_venv:
   - require:
     - cmd: setup_compute_venv
     - pkg: opencontrail_compute_packages
-
+{#
 /etc/sysconfig/network-scripts/ifcfg-{{ compute.interface.dev }}:
   file.managed:
   - source: salt://opencontrail/conf/ifcfg-dev
@@ -64,6 +64,7 @@ setup_compute_venv:
   - require:
     - cmd: setup_compute_venv
     - pkg: opencontrail_compute_packages
+#}
 
 /etc/sysconfig/network-scripts/ifcfg-vhost0:
   file.managed:
