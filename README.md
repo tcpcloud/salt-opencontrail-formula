@@ -136,6 +136,7 @@ Contrail Controller is an open, standards-based software solution that delivers 
     yum install contrail-vrouter contrail-openstack-vrouter
     reboot
     salt-call state.sls opencontrail
+    Add virtual router
     reboot
 
 ## Usage
