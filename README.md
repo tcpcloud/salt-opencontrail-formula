@@ -131,6 +131,13 @@ Contrail Controller is an open, standards-based software solution that delivers 
           dns: 8.8.8.8
         control_instances: 3
 
+## Compute node installation
+
+    yum install contrail-vrouter contrail-openstack-vrouter contrail-interface-name contrail-fabric-utils
+    reboot
+    salt-call state.sls opencontrail
+    reboot
+
 ## Usage
 
 Add virtual router
