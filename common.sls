@@ -12,12 +12,16 @@ opencontrail_repo:
 
 {%- if grains.os_family == "RedHat" %}
 
+{% if common.source.address is defined %}
+
 opencontrail_repo:
   pkgrepo.managed:
   - name: contrail
   - humanname: Contrail
   - baseurl: {{ common.source.address }}
   - gpgcheck: 0
+
+{% endif %}
 
 net.ipv4.ip_forward:
   sysctl.present:
