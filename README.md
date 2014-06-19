@@ -134,9 +134,10 @@ Contrail Controller is an open, standards-based software solution that delivers 
 ## Compute node installation
 
     yum install contrail-vrouter contrail-openstack-vrouter
-    reboot
-    salt-call state.sls opencontrail
+    salt-call state.sls nova,opencontrail
     Add virtual router
+    python /etc/contrail/provision_vrouter.py --host_name ch1nod3.12.intra.cloudlab.cz --host_ip 10.0.106.103 --api_server_ip 10.0.106.34 --oper add --admin_user admin --admin_password cloudlab --admin_tenant_name admin
+    /etc/sysconfig/network-scripts/ifcfg-bond0 -- comment GATEWAY,NETMASK,IPADDR
     reboot
 
 ## Usage
