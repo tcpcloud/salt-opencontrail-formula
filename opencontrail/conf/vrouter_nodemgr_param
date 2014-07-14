@@ -1,0 +1,3 @@
+{%- from "opencontrail/map.jinja" import compute with context %}
+
+DISCOVERY={{ compute.discovery.host }}

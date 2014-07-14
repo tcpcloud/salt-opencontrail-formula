@@ -1,0 +1,8 @@
+{%- from "opencontrail/map.jinja" import compute with context %}
+#Contrail {{ compute.get('interface.dev', 'p0p0p0') }}
+DEVICE={{ compute.get('interface.dev', 'p0p0p0') }}
+TYPE=Ethernet
+ONBOOT=yes
+USERCTL=yes
+NM_CONTROLLED=no
+HWADDR={{ compute.interface.default_pmac }}
